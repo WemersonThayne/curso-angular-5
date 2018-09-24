@@ -1,3 +1,5 @@
+import { FRASES } from './frases-mock';
+import { Frase } from './../shared/frase.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PainelComponent implements OnInit {
 
-  constructor() { }
+  public frases : Frase[] = FRASES;
+  constructor() { 
+    console.log(this.frases);
+  }
 
   ngOnInit() {
   }
