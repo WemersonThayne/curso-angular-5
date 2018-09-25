@@ -1,3 +1,2 @@
-<img [src]="url_imagem_cor_vazio"/>
-<img [src]="url_imagem_cor_cheio"/>
-<img [src]="url_imagem_cor_cheio"/>
+
+<img  *ngFor="let coracao of coracoes" [src]="coracao.exibirCoracao()"/>
