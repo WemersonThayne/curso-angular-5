@@ -1,0 +1,26 @@
+<div class="modal-content">
+        <div class="modal-header">
+                <h4 class="modal-title">Criar Publicação</h4>
+                <button type="button" class="close" (click)="activeModal.dismiss('Close clicked')" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <form [formGroup]="formulario" (ngSubmit)="publicar()">
+                    <div class="modal-body">
+                        <input type="text" placeholder="Título da publicação" class="form-control" formControlName="titulo">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            (click)="activeModal.dismiss('Close clicked')">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Publicar</button>
+                    </div>
+                </form>
+            </div>
+            
+</div>
+
+
+
+<!-- //https://itnext.io/creating-forms-inside-modals-with-ng-bootstrap-221e4f1f5648 -->

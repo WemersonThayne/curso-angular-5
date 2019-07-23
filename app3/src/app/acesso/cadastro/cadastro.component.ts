@@ -11,11 +11,17 @@ export class CadastroComponent implements OnInit {
 
   @Output() public exibirPainel: EventEmitter<string> = new EventEmitter();
   
+  public hasError: boolean = false;
+  public mensagemError: string;
+
   public formulario: FormGroup = new FormGroup({
-      'email' : new FormControl(null),
-      'nome_completo': new FormControl(null),
-      'nome_usuario': new FormControl(null),
-      'senha': new FormControl(null)
+      'email' : new FormControl(null, {validators: Validators.required}),
+      'nome_completo': new FormControl(null, {validators: Validators.required}),
+      'nome_usuario':new FormControl(null, {validators: Validators.required}),
+      'senha': new FormControl(null, Validators.compose([
+                                     Validators.required,
+                                     Validators.minLength(6)
+                              ])),
   });
 
   constructor(private auth: Auth) { }
@@ -34,7 +40,13 @@ export class CadastroComponent implements OnInit {
     usuario.nomeUsuario = this.formulario.value.nome_usuario,
     usuario.senha = this.formulario.value.senha
     
-    this.auth.cadastrarUsuario(usuario);
-      
+    this.auth.cadastrarUsuario(usuario).then(() => {
+      this.exibirPainelLogin();
+    }).catch( error =>{
+      console.log('error to create user on firebase:',error);
+      this.hasError = true;
+      this.mensagemError = error.message;
+    });
+    
   }
 }
