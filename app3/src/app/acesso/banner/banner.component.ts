@@ -23,12 +23,12 @@ export class BannerComponent implements OnInit {
   private VISIVEL :string = 'visivel';
   private ESCONDIDO :string = 'escondido';
 
-  public imagens: any[] =[
-    {estado: this.VISIVEL, url:'/assets/banner-acesso/img_1.png'},
-    {estado: this.ESCONDIDO, url:'/assets/banner-acesso/img_2.png'},
-    {estado: this.ESCONDIDO, url:'/assets/banner-acesso/img_3.png'},
-    {estado: this.ESCONDIDO, url:'/assets/banner-acesso/img_4.png'},
-    {estado: this.ESCONDIDO, url:'/assets/banner-acesso/img_5.png'}
+  public imagens: Imagem [] =[
+    new Imagem(this.VISIVEL, '/assets/banner-acesso/img_1.png'),
+    new Imagem(this.ESCONDIDO, '/assets/banner-acesso/img_2.png'),
+    new Imagem(this.ESCONDIDO, '/assets/banner-acesso/img_3.png'),
+    new Imagem(this.ESCONDIDO, '/assets/banner-acesso/img_4.png'),
+    new Imagem(this.ESCONDIDO, '/assets/banner-acesso/img_5.png')
   ]
  
   constructor() { }

@@ -1,4 +1,4 @@
-import { Auth } from './acesso/auth.service';
+import { Auth } from './auth.service';
 import { CanActivate } from '@angular/router';
 import { Injectable } from '@angular/core';
 

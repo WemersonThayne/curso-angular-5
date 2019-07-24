@@ -1,4 +1,4 @@
-import { AuthGuard } from './auth.guard.service';
+import { AuthGuard } from './services/auth.guard.service';
 import { HomeComponent } from './home/home.component';
 import { AcessoComponent } from './acesso/acesso.component';
 import { NgModule } from '@angular/core';

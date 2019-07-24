@@ -1,5 +1,5 @@
-import { Auth } from './../acesso/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Auth } from '../services/auth.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IncluirPublicacaoComponent } from './incluir-publicacao/incluir-publicacao.component';
 
@@ -10,8 +10,11 @@ import { IncluirPublicacaoComponent } from './incluir-publicacao/incluir-publica
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private auth: Auth, private modalService: NgbModal) { }
+  isAddPost: boolean = false;
+  @ViewChild('publicacoes',{static:false}) public publicacoes: any
 
+  constructor(private auth: Auth, private modalService: NgbModal) { }
+  
   ngOnInit() {
   }
 
@@ -20,13 +23,17 @@ export class HomeComponent implements OnInit {
   }
 
   openFormModal() {
+    this.isAddPost = true;
     const modalRef = this.modalService.open(IncluirPublicacaoComponent);
     modalRef.result.then((result) => {
-      console.log(result);
+      this.isAddPost = false;
     }).catch((error) => {
-      console.log(error);
+      this.isAddPost = false;
     });
   }
-  
+
+  public atualizarTimeLine(): void { 
+    this.publicacoes.atualizarTimeLine();
+  }
 
 }

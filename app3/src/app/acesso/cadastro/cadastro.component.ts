@@ -1,4 +1,4 @@
-import { Auth } from './../auth.service';
+import { Auth } from '../../services/auth.service';
 import { Usuario } from '../usuario.model';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
